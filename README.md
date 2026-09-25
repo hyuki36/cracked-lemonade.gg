@@ -2,7 +2,7 @@
 
 Premium mirror of `https://lemonade.gg` with infinite credits, 8 working Luau models and a real MCP bridge.
 
-Live: `https://cracked-lemonadegg.vercel.app` (also works as `lemonade-cracked.vercel.app` if you rename the Vercel project)
+Live: `https://cracked-lemonade.vercel.app` (also works as `lemonade-cracked.vercel.app` if you rename the Vercel project)
 
 ## What works
 - `/` — cinematic landing (no Next.js runtime, no client exceptions)
@@ -19,7 +19,7 @@ Live: `https://cracked-lemonadegg.vercel.app` (also works as `lemonade-cracked.v
 
 ## Deploy (Vercel)
 1. Import `hyuki36/cracked-lemonade.gg`, Framework: Other, Build empty, Output `.`
-2. Project name `cracked-lemonadegg` (or `lemonade-cracked`)
+2. Project name `cracked-lemonade` (or `lemonade-cracked`)
 3. Env (optional, only for convex-real): `CONVEX_URL=https://cloud.lemonade.gg`, `CONVEX_PATH=games:generate`
 4. Deploy. Test: `GET /api/models`, `GET /api/mcp`, open `/dashboard` → Generate ∞
 

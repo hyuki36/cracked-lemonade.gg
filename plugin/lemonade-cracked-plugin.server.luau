@@ -7,7 +7,7 @@
 
 local HttpService = game:GetService("HttpService")
 
-local MCP_URL = "https://cracked-lemonadegg.vercel.app/api/mcp"
+local MCP_URL = "https://cracked-lemonade.vercel.app/api/mcp"
 local PROMPT = "brainrot pvp arena with swords"
 
 local function mcpGenerate(prompt)

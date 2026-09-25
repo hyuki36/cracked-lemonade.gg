@@ -20,7 +20,7 @@ const TOOLS = [
 module.exports = async (req, res) => {
   res.setHeader("content-type", "application/json");
   res.setHeader("access-control-allow-origin", "*");
-  const base = `https://${req.headers.host || "cracked-lemonadegg.vercel.app"}`;
+  const base = `https://${req.headers.host || "cracked-lemonade.vercel.app"}`;
   if (req.method === "GET") {
     res.statusCode = 200;
     res.end(JSON.stringify({ name: "lemonade-cracked-mcp", version: "1.0.0", protocol: "mcp-jsonrpc-http", endpoint: `${base}/api/mcp`, tools: TOOLS.map((t) => t.name), credits: null }));

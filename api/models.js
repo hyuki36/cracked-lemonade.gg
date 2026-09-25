@@ -2,7 +2,7 @@
 module.exports = async (req, res) => {
   res.setHeader("content-type", "application/json");
   res.setHeader("access-control-allow-origin", "*");
-  const base = `https://${req.headers.host || "cracked-lemonadegg.vercel.app"}`;
+  const base = `https://${req.headers.host || "cracked-lemonade.vercel.app"}`;
   res.statusCode = 200;
   res.end(JSON.stringify({
     credits: null,
