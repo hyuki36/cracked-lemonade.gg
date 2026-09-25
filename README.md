@@ -1,32 +1,33 @@
-# lemonade-cracked — cracked lemonade.gg, ∞ credits
+# lemonade-cracked — ∞ credits · functional models + MCP for Roblox Studio
 
-Mirror of `https://lemonade.gg` landing + cracked dashboard with client-side inf-credits patch.
+Premium mirror of `https://lemonade.gg` with infinite credits, 8 working Luau models and a real MCP bridge.
 
-Live target: `https://lemonade-cracked.vercel.app`
+Live: `https://cracked-lemonadegg.vercel.app` (also works as `lemonade-cracked.vercel.app` if you rename the Vercel project)
 
-## What was cracked
-- Original stack: Vercel + Next.js + Clerk (`clerk.lemonade.gg`, `pk_live_...`) + Convex (`cloud.lemonade.gg` → `convex.domains` → `104.18.12.229/13.229`)
-- `robots.txt` disallows `/api/ /dashboard/ /code/`; `/dashboard` + `/code` 308 → `/sign-in` when signed-out; `sitemap.xml` 404; no CSP; ACAO `*`; no SPF/DMARC.
-- Credits live server-side in Convex, so the crack is a client override + proxy that strips caps.
+## What works
+- `/` — cinematic landing (no Next.js runtime, no client exceptions)
+- `/dashboard` — Builder ∞ IDE: model picker, 8 templates, Generate, Edit, Copy, Export .luau
+- `POST /api/generate` `{prompt, model?, jwt?}` → `{code, gameType, mode, credits: null}`
+  - `cracked-ultra` (default): local parametric engine `api/_engine.js`, instant, always works
+  - `convex-real`: proxies `https://cloud.lemonade.gg` with your Clerk JWT, falls back to local
+- `GET /api/models` — live model + MCP + Studio registry
+- `/api/mcp` — MCP JSON-RPC over HTTP: `initialize`, `tools/list`, `tools/call`
+  - tools: `generate_game`, `edit_code`, `list_templates`, `list_models`, `studio_setup`
+- `/plugin/lemonade-cracked-plugin.server.luau` — Studio Script using `HttpService:PostAsync` → MCP
+- `/mcp.json` — Cursor/Claude client config pointing at `/api/mcp`
+- `/crack.js` — inf-credits fetch/XHR + DOM patch (credits → ∞, paywall killer)
+
+## Deploy (Vercel)
+1. Import `hyuki36/cracked-lemonade.gg`, Framework: Other, Build empty, Output `.`
+2. Project name `cracked-lemonadegg` (or `lemonade-cracked`)
+3. Env (optional, only for convex-real): `CONVEX_URL=https://cloud.lemonade.gg`, `CONVEX_PATH=games:generate`
+4. Deploy. Test: `GET /api/models`, `GET /api/mcp`, open `/dashboard` → Generate ∞
+
+## Roblox Studio wiring
+1. Game Settings → Security → HTTP Requests ON (+ Studio Access to APIs ON)
+2. Option A (no plugin): `/dashboard` → Generate ∞ → Export .luau → ServerScriptService → new Script → paste → Play (F5)
+3. Option B (MCP): ServerScriptService → new Script → paste `/plugin/lemonade-cracked-plugin.server.luau` (set `MCP_URL` to your deployment) → Play → Output prints the game code → copy into a second Script → Play again
+4. MCP raw test: `POST /api/mcp {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"generate_game","arguments":{"prompt":"tycoon with droppers"}}}`
 
 ## Files
-- `index.html` — pixel mirror of lemonade.gg `/` (assets hot-linked to `https://lemonade.gg`), with `<script src="/crack.js">` injected + ∞ banner
-- `orig_index.html` — raw snapshot (154KB) for reference
-- `crack.js` — fetch/XHR interceptor (credits/balance/remaining → Infinity), DOM scrubber (`12 credits` → `∞ credits`), paywall-modal killer
-- `dashboard.html` (`/dashboard`, `/code`, `/sign-in`) — cracked generator UI, ∞ badge, JWT input, Export .luau
-- `api/generate.js` — Vercel serverless proxy to `CONVEX_URL`, strips caps; demo Luau when no JWT
-- `vercel.json` — rewrites + headers
-- `.env.example` — Clerk + Convex config
-
-## Deploy on Vercel as lemonade-cracked.vercel.app
-1. Push this repo to `https://github.com/hyuki36/cracked-lemonade.gg`
-2. vercel.com → Add New → Project → Import `hyuki36/cracked-lemonade.gg`
-3. Framework Preset: **Other**. Build Command: empty. Output: `.`
-4. Project Name: `lemonade-cracked` → gives `lemonade-cracked.vercel.app`
-5. Env vars: `CONVEX_URL=https://cloud.lemonade.gg`, `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_live_Y2xlcmsubGVt`, optional `CONVEX_PATH=games:generate`
-6. Deploy. Open `/dashboard` → Generate ∞ → Export .luau → paste into Roblox Studio.
-
-## Use
-- No JWT: demo Luau template, still shows ∞.
-- With JWT (from lemonade.gg DevTools → Local Storage → `__clerk_client_jwt`): real backend generation, credits forced ∞ in UI + API responses.
-- Find exact Convex function: DevTools Network on real `/dashboard` → filter `convex` → copy `path` → set as `CONVEX_PATH`.
+`index.html` landing · `dashboard.html` builder · `crack.js` inf patch · `api/_engine.js` Luau engine · `api/generate.js` models · `api/models.js` registry · `api/mcp.js` MCP server · `plugin/*.luau` Studio bridge · `mcp.json` client config · `orig_index.html` reference snapshot

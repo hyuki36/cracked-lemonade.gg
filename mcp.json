@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "lemonade-cracked": {
+      "url": "https://cracked-lemonadegg.vercel.app/api/mcp",
+      "transport": "http",
+      "notes": "POST JSON-RPC. Methods: initialize, tools/list, tools/call {generate_game, edit_code, list_templates, list_models, studio_setup}. Dashboard: /dashboard. Models: /api/models."
+    }
+  }
+}

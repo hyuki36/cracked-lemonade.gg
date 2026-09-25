@@ -3,58 +3,106 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemonade Cracked — Build the game only you can imagine — ∞ Credits</title>
-<meta name="description" content="Cracked lemonade.gg mirror with inf credits. Generate Roblox games with no limits."/>
+<title>Lemonade Cracked — AI Roblox Studio Builder · ∞ Credits · MCP + Models</title>
+<meta name="description" content="Cracked lemonade.gg: generate playable Roblox games with functional models + MCP for Roblox Studio. Infinite credits."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <script src="/crack.js"></script>
 <style>
-  *{box-sizing:border-box} body{margin:0;background:#0a0f0d;color:#e8fff3;font-family:Inter,system-ui,-apple-system,sans-serif}
-  a{color:inherit;text-decoration:none} header{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid #14231d;position:sticky;top:0;background:#0a0f0dbb;backdrop-filter:blur(8px);z-index:10}
-  .logo{display:flex;gap:10px;align-items:center;font-weight:800} .logo img{width:28px;height:28px}
-  .cta{background:#00ffa3;color:#003322;font-weight:800;padding:10px 18px;border-radius:999px}
-  .hero{max-width:960px;margin:64px auto 24px;text-align:center;padding:0 20px}
-  .hero h1{font-size:clamp(38px,6vw,72px);line-height:1.02;margin:10px 0} .hero h1 span{color:#00ffa3}
-  .hero p{color:#8fb5a3;font-size:18px} .promptbox{display:flex;gap:10px;max-width:640px;margin:26px auto;background:#0e1512;border:1px solid #1e3a2f;border-radius:16px;padding:10px}
-  .promptbox input{flex:1;background:transparent;border:0;color:#fff;font-size:16px;padding:10px;outline:0}
-  .promptbox button{background:#00ffa3;border:0;font-weight:800;border-radius:12px;padding:12px 20px;cursor:pointer}
-  .grid{max-width:1000px;margin:30px auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:0 20px}
-  .card{background:#0e1512;border:1px solid #1e3a2f;border-radius:16px;overflow:hidden} .card img{width:100%;height:130px;object-fit:cover;display:block;background:#123}
-  .card div{padding:12px 14px;font-weight:700} .card small{color:#7aa894;font-weight:400}
-  .badge{position:fixed;bottom:12px;right:12px;z-index:99999;background:#00ffa3;color:#003322;font-weight:800;padding:8px 14px;border-radius:999px}
-  footer{border-top:1px solid #14231d;margin-top:50px;padding:22px;color:#7aa894;font-size:13px;text-align:center}
-  .pill{display:inline-block;border:1px solid #1e3a2f;border-radius:999px;padding:6px 14px;color:#00ffa3;margin-bottom:12px}
+:root{--bg:#070b09;--panel:#0d1310;--line:#1c2f26;--lime:#b6ff3b;--aqua:#00ffa3;--txt:#f2fff7;--mut:#8fb5a3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+#stars{position:fixed;inset:0;z-index:0;opacity:.9}.orb{position:fixed;border-radius:50%;filter:blur(110px);z-index:0;pointer-events:none}
+header{position:sticky;top:0;z-index:20;background:rgba(7,11,9,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:13px 0}
+.logo{display:flex;gap:10px;align-items:center;font-family:"Space Grotesk";font-weight:700;font-size:19px}.logo img{width:30px;height:30px}
+.links{display:flex;gap:22px;color:var(--mut);font-size:14px}.links a:hover{color:#fff}
+.cta{background:linear-gradient(135deg,var(--lime),var(--aqua));color:#06130c;font-weight:800;padding:11px 20px;border-radius:999px;box-shadow:0 8px 30px rgba(0,255,163,.25)}
+.inf{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:13px;color:var(--aqua)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua);animation:pulse 1.6s infinite}@keyframes pulse{50%{opacity:.4}}
+.hero{position:relative;z-index:1;text-align:center;padding:84px 0 30px}
+.kicker{display:inline-block;border:1px solid var(--line);background:#0d1310cc;padding:8px 16px;border-radius:999px;color:var(--aqua);font-size:13px;letter-spacing:.04em}
+h1{font-family:"Space Grotesk";font-size:clamp(44px,7vw,92px);line-height:.98;margin:22px 0 14px;letter-spacing:-.03em}
+h1 .grad{background:linear-gradient(92deg,var(--lime),var(--aqua) 55%,#7dd3fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);font-size:clamp(16px,2vw,20px);max-width:720px;margin:0 auto}
+.console{max-width:760px;margin:34px auto 0;background:#0b100de6;border:1px solid var(--line);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden;text-align:left}
+.bar{display:flex;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);align-items:center}.d{width:11px;height:11px;border-radius:50%}.term{padding:18px 20px;font-family:"JetBrains Mono",monospace;font-size:14px;line-height:1.7;min-height:150px}
+.ok{color:var(--aqua)}.dim{color:var(--mut)}.caret{display:inline-block;width:9px;height:18px;background:var(--lime);vertical-align:-3px;animation:blink 1s infinite}@keyframes blink{50%{opacity:0}}
+.promptrow{display:flex;gap:10px;padding:14px;border-top:1px solid var(--line)}.promptrow input{flex:1;background:#070b09;border:1px solid var(--line);border-radius:12px;color:#fff;padding:13px 15px;font-size:15px;outline:0}.promptrow button{background:linear-gradient(135deg,var(--lime),var(--aqua));border:0;font-weight:800;border-radius:12px;padding:13px 22px;cursor:pointer}
+.stats{display:flex;gap:14px;justify-content:center;margin:30px 0;flex-wrap:wrap;position:relative;z-index:1}.stat{background:#0d1310cc;border:1px solid var(--line);border-radius:16px;padding:14px 22px;min-width:150px}.stat b{font-size:24px;font-family:"Space Grotesk"}.stat span{color:var(--mut);font-size:12px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:40px 0;position:relative;z-index:1}
+.card{background:linear-gradient(180deg,#101713,#0b100d);border:1px solid var(--line);border-radius:20px;padding:22px;transition:.25s}.card:hover{transform:translateY(-6px);border-color:var(--aqua);box-shadow:0 24px 60px rgba(0,255,163,.12)}
+.card h3{margin:12px 0 8px;font-family:"Space Grotesk"}.card p{color:var(--mut);font-size:14px;line-height:1.6}.icon{font-size:28px}
+.showcase{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin:20px 0 10px;position:relative;z-index:1}
+.g{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:.25s;position:relative}.g:hover{transform:scale(1.02)}.g img{width:100%;height:150px;object-fit:cover;display:block}.g div{padding:12px 14px;font-weight:700}.g small{color:var(--mut);font-weight:400}.g .play{position:absolute;top:10px;right:10px;background:#000a;font-size:12px;padding:6px 10px;border-radius:999px}
+.studio{background:#0b100d;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin:34px 0;position:relative;z-index:1}.studio .head{display:flex;gap:8px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);color:var(--mut);font-size:13px}.studio pre{margin:0;padding:20px;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.7;overflow:auto;color:#d7ffe9}
+section h2{font-family:"Space Grotesk";font-size:clamp(28px,4vw,44px);margin:60px 0 8px;position:relative;z-index:1}section p.lead{color:var(--mut);position:relative;z-index:1}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px;color:var(--mut);font-size:13px;position:relative;z-index:1}
+.float{position:fixed;bottom:14px;right:14px;z-index:50;background:linear-gradient(135deg,var(--lime),var(--aqua));color:#06130c;font-weight:800;padding:10px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+@media(max-width:700px){.links{display:none}}
 </style>
 </head>
 <body>
-<header>
-  <a class="logo" href="/"><img src="https://lemonade.gg/icons/logo-icon.svg" alt=""/> Lemonade Cracked</a>
-  <div style="display:flex;gap:10px;align-items:center">
-    <span style="background:#00ffa3;color:#003322;font-weight:800;padding:6px 12px;border-radius:999px">∞ credits</span>
-    <a class="cta" href="/dashboard">Start Building ∞</a>
-  </div>
-</header>
-<main>
+<canvas id="stars"></canvas>
+<div class="orb" style="width:520px;height:520px;background:#00ffa322;top:-160px;left:-140px"></div>
+<div class="orb" style="width:620px;height:620px;background:#b6ff3b1f;bottom:-220px;right:-180px"></div>
+<header><div class="wrap nav">
+  <a class="logo" href="/"><img src="https://lemonade.gg/icons/logo-icon.svg" alt=""/> Lemonade <span style="color:var(--lime)">Cracked</span></a>
+  <nav class="links"><a href="#models">Models</a><a href="#mcp">MCP</a><a href="#games">Games</a><a href="#studio">Roblox Studio</a><a href="https://github.com/hyuki36/cracked-lemonade.gg">Src</a></nav>
+  <div style="display:flex;gap:10px;align-items:center"><span class="inf"><span class="dot"></span>∞ credits · pro-inf</span><a class="cta" href="/dashboard">Open Builder ∞</a></div>
+</div></header>
+<div class="wrap">
   <div class="hero">
-    <div class="pill">🍋 cracked mirror • inf credits active • pro-inf</div>
-    <h1>Your First Business<br/>Starts <span>Here</span></h1>
-    <p>Build the game <b>only you can imagine</b> — no credit limits. Join +500K creators.</p>
-    <form class="promptbox" action="/dashboard" method="get">
-      <input name="prompt" placeholder="Describe your game... e.g. brainrot pvp arena"/>
-      <button type="submit">Generate ∞</button>
-    </form>
-    <p style="font-size:13px">Original: <a style="color:#00ffa3" href="https://lemonade.gg">lemonade.gg</a> • This mirror: inf-credits client + Convex proxy at <code>/api/generate</code></p>
+    <span class="kicker">🍋 CRACKED MIRROR · FUNCTIONAL MODELS + MCP · ROBLOX STUDIO READY</span>
+    <h1>Prompt it.<br/><span class="grad">Play it in Studio.</span></h1>
+    <p class="sub">The AI Roblox builder with <b style="color:#fff">infinite credits</b>, 8 functional game models and a real <b style="color:#fff">MCP bridge</b> — generate complete Luau, sync to Roblox Studio, press Play.</p>
+    <div class="console">
+      <div class="bar"><span class="d" style="background:#ff5f57"></span><span class="d" style="background:#febc2e"></span><span class="d" style="background:#28c840"></span><span style="margin-left:8px;color:var(--mut)">lemonade-cracked — mcp · models · studio</span></div>
+      <div class="term"><span class="dim">$</span> curl -X POST /api/mcp -d '{"method":"tools/call","params":{"name":"generate_game"}}'<br/><span class="ok">✓ credits: Infinity · model cracked-ultra · 142 lines Luau</span><br/><span class="dim">$</span> studio_sync --target ServerScriptService --play<br/><span class="ok">✓ arena + leaderstats + tool live in Play (F5)</span> <span class="caret"></span></div>
+      <form class="promptrow" action="/dashboard" method="get"><input name="prompt" placeholder="Try: brainrot pvp arena with swords…"/><button type="submit">Generate ∞</button></form>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>∞</b><br/><span>credits, forever</span></div>
+      <div class="stat"><b>8</b><br/><span>functional models</span></div>
+      <div class="stat"><b>5</b><br/><span>MCP tools live</span></div>
+      <div class="stat"><b>1-click</b><br/><span>Studio export</span></div>
+    </div>
   </div>
-  <div class="grid">
-    <a class="card" href="/dashboard"><img src="https://lemonade.gg/videos/1/sell-lemons.webp" alt=""/><div>Lemonade stand<br/><small>sell lemons tycoon</small></div></a>
-    <a class="card" href="/dashboard"><img src="https://lemonade.gg/videos/1/cart.webp" alt=""/><div>Aura game<br/><small>cart + aura farm</small></div></a>
-    <a class="card" href="/dashboard"><img src="https://lemonade.gg/videos/1/grow-a-garden.webp" alt=""/><div>Farm game<br/><small>grow a garden</small></div></a>
-    <a class="card" href="/dashboard"><img src="https://lemonade.gg/videos/1/pvp.webp" alt=""/><div>Brainrot game<br/><small>pvp battle</small></div></a>
-    <a class="card" href="/dashboard"><img src="https://lemonade.gg/_next/image?url=%2Fvideos%2F2%2Fblade-ball.webp&w=640&q=75" alt=""/><div>Dodge game<br/><small>blade-ball style</small></div></a>
-    <a class="card" href="/dashboard"><img src="https://lemonade.gg/_next/image?url=%2Fvideos%2F2%2Frivals.webp&w=640&q=75" alt=""/><div>Shooter game<br/><small>tactical rivals</small></div></a>
-    <a class="card" href="/dashboard"><img src="https://lemonade.gg/_next/image?url=%2Fvideos%2F2%2Fjailbreak.webp&w=640&q=75" alt=""/><div>Prison game<br/><small>jailbreak</small></div></a>
-    <a class="card" href="/dashboard"><img src="https://lemonade.gg/_next/image?url=%2Fvideos%2F2%2F99nights.webp&w=640&q=75" alt=""/><div>Survival game<br/><small>99 nights</small></div></a>
-  </div>
-</main>
-<footer>founders@lemonade.gg — South, Governors Avenue 19904, Delaware, US — © Lemonade Labs, Inc. (mirror for testing, inf-credits patch)<br/><a href="/dashboard">/dashboard</a> • <a href="https://github.com/hyuki36/cracked-lemonade.gg">src</a></footer>
-<div class="badge">INF CREDITS • <a href="/dashboard">/dashboard</a></div>
+  <section id="models"><h2>Models that actually run.</h2><p class="lead">No stubs. Every model emits a full <code>ServerScriptService</code> script — baseplate, spawn, leaderstats, tool, game loop. <a style="color:var(--aqua)" href="/api/models">/api/models</a> is live.</p>
+    <div class="grid3">
+      <div class="card"><div class="icon">⚔️</div><h3>Cracked Ultra — PvP / Brainrot</h3><p>Arena + pillars + Blade tool that grants KOs on activation. Instant, offline-capable.</p></div>
+      <div class="card"><div class="icon">🏭</div><h3>Tycoon / Simulator / Farm / Pet</h3><p>Cash, Power, Crops, Pets leaderstats with tuned rewards. Same scaffold, real tuning.</p></div>
+      <div class="card"><div class="icon">🧩</div><h3>Obby / Shooter / Survival</h3><p>Checkpoints, Blaster, night waves — all from one parametric engine (<code>api/_engine.js</code>).</p></div>
+    </div></section>
+  <section id="mcp"><h2>MCP bridge for Studio + agents.</h2><p class="lead">Endpoint <code>/api/mcp</code> speaks MCP JSON-RPC. Cursor, Claude, or the Studio plugin below can call it. Config: <code>mcp.json</code>.</p>
+    <div class="studio"><div class="head">POST /api/mcp · tools/list → generate_game · edit_code · list_templates · list_models · studio_setup</div><pre>{
+  "jsonrpc": "2.0", "id": 1, "method": "tools/call",
+  "params": { "name": "generate_game",
+    "arguments": { "prompt": "tycoon with droppers" } }
+}
+→ { "gameType": "tycoon", "credits": null, "content": [{ "type": "text", "text": "-- Tycoon …" }] }</pre></div></section>
+  <section id="games"><h2>Ship tonight.</h2><p class="lead">Pick a seed — the builder opens with the prompt prefilled and ∞ credits armed.</p>
+    <div class="showcase">
+      <a class="g" href="/dashboard?prompt=brainrot%20pvp%20arena"><span class="play">▶ playable</span><img src="https://lemonade.gg/videos/1/pvp.webp"/><div>Brainrot PvP<br/><small>arena + swords</small></div></a>
+      <a class="g" href="/dashboard?prompt=lemonade%20stand%20tycoon"><span class="play">▶ playable</span><img src="https://lemonade.gg/videos/1/sell-lemons.webp"/><div>Lemonade Tycoon<br/><small>stand + droppers</small></div></a>
+      <a class="g" href="/dashboard?prompt=aura%20farm%20simulator"><span class="play">▶ playable</span><img src="https://lemonade.gg/videos/1/cart.webp"/><div>Aura Sim<br/><small>click power</small></div></a>
+      <a class="g" href="/dashboard?prompt=grow%20a%20garden%20farm"><span class="play">▶ playable</span><img src="https://lemonade.gg/videos/1/grow-a-garden.webp"/><div>Garden Farm<br/><small>crops + harvest</small></div></a>
+    </div></section>
+  <section id="studio"><h2>Roblox Studio in 3 steps.</h2><p class="lead">HTTP Requests ON, paste, Play. Full guide inside the builder.</p>
+    <div class="studio"><div class="head">ServerScriptService · Script · Play (F5)</div><pre>1. Game Settings → Security → HTTP Requests ON
+2. /dashboard → pick model → Generate ∞ → Export .luau
+   — or — plugin: /plugin/lemonade-cracked-plugin.server.luau → Play → Output prints code
+3. Paste into ServerScriptService Script → Play → arena + stats live</pre></div>
+    <p><a class="cta" href="/dashboard">Start building ∞ →</a></p></section>
+  <footer>🍋 lemonade-cracked · mirror of <a href="https://lemonade.gg">lemonade.gg</a> · backend <a href="https://cloud.lemonade.gg">cloud.lemonade.gg</a> · <a href="/dashboard">builder</a> · <a href="/api/models">models</a> · <a href="/api/mcp">mcp</a> · <a href="https://github.com/hyuki36/cracked-lemonade.gg">src</a></footer>
+</div>
+<a class="float" href="/dashboard">∞ Build now</a>
+<script>
+// starfield
+const c=document.getElementById('stars'),x=c.getContext('2d');let W,H,P=[];
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight}rs();addEventListener('resize',rs);
+for(let i=0;i<140;i++)P.push({x:Math.random()*2e3,y:Math.random()*2e3,s:Math.random()*1.6+.3,v:Math.random()*.35+.05});
+(function loop(){x.clearRect(0,0,W,H);x.fillStyle='#b6ff3b';for(const p of P){p.y+=p.v;if(p.y>H){p.y=0;p.x=Math.random()*W}x.globalAlpha=.25+Math.random()*.5;x.fillRect(p.x%W,p.y,p.s,p.s)}x.globalAlpha=1;requestAnimationFrame(loop)})();
+</script>
 </body>
 </html>

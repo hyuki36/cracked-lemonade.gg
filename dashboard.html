@@ -3,73 +3,99 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemonade Cracked — ∞ Credits</title>
+<title>Builder ∞ — Lemonade Cracked · Models + MCP + Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <script src="/crack.js"></script>
 <style>
-  body{background:#0a0f0d;color:#e8fff3;font-family:Inter,system-ui,sans-serif;margin:0}
-  header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #123}
-  .badge{background:#00ffa3;color:#003322;font-weight:800;padding:6px 14px;border-radius:999px}
-  main{max-width:860px;margin:32px auto;padding:0 20px}
-  textarea{width:100%;min-height:110px;background:#0e1512;color:#fff;border:1px solid #1e3a2f;border-radius:12px;padding:14px;font-size:15px}
-  button{background:#00ffa3;border:0;font-weight:800;padding:12px 20px;border-radius:12px;cursor:pointer;margin-top:12px}
-  button:disabled{opacity:.5}
-  pre{background:#0e1512;border:1px solid #1e3a2f;border-radius:12px;padding:14px;white-space:pre-wrap;max-height:420px;overflow:auto}
-  .row{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
-  input{background:#0e1512;border:1px solid #1e3a2f;color:#fff;border-radius:10px;padding:10px 12px;flex:1;min-width:220px}
-  small{color:#7aa894}
-  a{color:#00ffa3}
+:root{--bg:#070b09;--panel:#0c120f;--panel2:#0f1613;--line:#1c2f26;--lime:#b6ff3b;--aqua:#00ffa3;--txt:#efffF5;--mut:#8fb5a3}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;display:flex;min-height:100vh}
+aside{width:300px;background:var(--panel);border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:16px}
+main{flex:1;display:flex;flex-direction:column;min-width:0}
+header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);background:#0a0f0ccc;position:sticky;top:0;z-index:5}
+h1{font-family:"Space Grotesk";font-size:18px;margin:0}.badge{background:linear-gradient(135deg,var(--lime),var(--aqua));color:#06130c;font-weight:800;padding:6px 12px;border-radius:999px;font-size:13px}
+.sec{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--panel2)}.sec h4{margin:0 0 10px;font-size:12px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase}
+.model{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:8px;cursor:pointer}.model.on{border-color:var(--aqua);box-shadow:0 0 0 1px var(--aqua)}.model b{font-size:14px}.model small{color:var(--mut);display:block;font-size:12px}
+.tpl{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:12px;margin:0 6px 6px 0;cursor:pointer}.tpl:hover{border-color:var(--aqua)}
+.work{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:0}
+.left{border-right:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:12px}
+.right{background:#080d0a;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+textarea{width:100%;min-height:96px;background:#070b09;border:1px solid var(--line);border-radius:12px;color:#fff;padding:13px;font-size:14px;resize:vertical}
+.row{display:flex;gap:10px;flex-wrap:wrap}.btn{background:linear-gradient(135deg,var(--lime),var(--aqua));border:0;font-weight:800;padding:11px 18px;border-radius:11px;cursor:pointer;color:#06130c}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}.btn:disabled{opacity:.5}
+input,select{background:#070b09;border:1px solid var(--line);color:#fff;border-radius:10px;padding:10px 12px;font-size:13px}select{flex:1}input{flex:2;min-width:180px}
+pre#out{background:#05080 6;background:#050806;border:1px solid var(--line);border-radius:12px;padding:16px;font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;flex:1;overflow:auto;max-height:56vh;margin:0}
+#log{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mut);min-height:40px}.ok{color:var(--aqua)}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px}summary{cursor:pointer;font-weight:700}code{background:#000;padding:2px 6px;border-radius:6px;color:var(--lime)}
+a{color:var(--aqua)}
+@media(max-width:960px){aside{display:none}.work{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-  <div><b>🍋 Lemonade Cracked</b> <small>cracked-lemonade.gg</small></div>
-  <div class="badge">∞ credits • pro-inf</div>
-</header>
+<aside>
+  <div><b>🍋 Builder ∞</b><br/><small style="color:var(--mut)">models + mcp + studio</small></div>
+  <div class="sec"><h4>Model (functional)</h4><div id="models"><div class="model on" data-m="cracked-ultra"><div>⚡<br/></div><div><b>Cracked Ultra</b><small>instant · 8 types · no key</small></div></div><div class="model" data-m="convex-real"><div>🌐</div><div><b>Convex Real</b><small>real backend · needs JWT</small></div></div></div></div>
+  <div class="sec"><h4>Templates</h4><div id="tpls"></div></div>
+  <div class="sec"><h4>MCP</h4><div style="font-size:13px;color:var(--mut)">Endpoint<br/><code id="mcpUrl">/api/mcp</code><br/><br/>Status: <b id="mcpStatus" style="color:var(--aqua)">checking…</b><br/><br/><a href="/plugin/lemonade-cracked-plugin.server.luau">Studio plugin ↓</a> · <a href="/mcp.json">mcp.json</a></div></div>
+  <div class="sec"><h4>Studio quickstart</h4><div style="font-size:12.5px;color:var(--mut);line-height:1.7">1. HTTP Requests ON<br/>2. Generate → Export .luau<br/>3. ServerScriptService → paste → Play</div></div>
+</aside>
 <main>
-  <h2>Generate — no limits</h2>
-  <p><small>Credits are patched client-side to <b>∞</b> via <code>/crack.js</code>. Paste your Clerk JWT from <code>lemonade.gg/dashboard</code> (DevTools → Application → Local Storage → <code>__clerk_client_jwt</code>) to proxy to the real Convex backend <code>https://cloud.lemonade.gg</code>. No JWT = demo Luau template.</small></p>
-  <textarea id="prompt" placeholder="e.g. brainrot pvp arena with swords, aura farm...">brainrot pvp arena with swords</textarea>
-  <div class="row">
-    <input id="jwt" placeholder="Clerk JWT (optional — enables real backend)"/>
-    <button id="gen">Generate ∞</button>
-    <button id="export">Export .luau</button>
+  <header><a href="/" style="font-weight:800">←</a><h1>Generate — <span class="badge">∞ credits · <span id="mname">cracked-ultra</span></span></h1><span style="flex:1"></span><button class="btn ghost" id="copyBtn">Copy Luau</button><button class="btn ghost" id="expBtn">Export .luau</button></header>
+  <div class="work">
+    <div class="left">
+      <textarea id="prompt" placeholder="Describe your Roblox game…">brainrot pvp arena with swords</textarea>
+      <div class="row"><select id="gtype"><option value="auto">auto-detect type</option><option>pvp</option><option>tycoon</option><option>simulator</option><option>obby</option><option>shooter</option><option>survival</option><option>farm</option><option>pet</option></select><input id="jwt" placeholder="Clerk JWT (only for convex-real)"/></div>
+      <div class="row"><button class="btn" id="gen">Generate ∞</button><button class="btn ghost" id="editBtn">Apply edit ↓</button></div>
+      <input id="editIns" placeholder="Edit: e.g. double rewards, red base, speed 32"/>
+      <div id="log">idle — ∞ armed. models + mcp live.</div>
+      <details><summary>How MCP + models plug into Roblox Studio</summary><p>Models emit full <code>ServerScriptService</code> Luau (baseplate, spawn, leaderstats, tool). MCP at <code>/api/mcp</code> exposes <code>generate_game / edit_code / list_templates / studio_setup</code> over JSON-RPC — Cursor, Claude, or the <a href="/plugin/lemonade-cracked-plugin.server.luau">Studio plugin</a> calls it with <code>HttpService:PostAsync</code>. No key needed for <code>cracked-ultra</code>; paste a Clerk JWT only for <code>convex-real</code>.</p></details>
+    </div>
+    <div class="right"><pre id="out">-- output appears here
+-- pick a model + template, hit Generate ∞</pre></div>
   </div>
-  <p><small>Status: <span id="status">idle — inf credits active</span></small></p>
-  <pre id="out">-- output will appear here</pre>
-  <p><small>Original: <a href="https://lemonade.gg">lemonade.gg</a> • Backend: <a href="https://cloud.lemonade.gg">cloud.lemonade.gg</a> • Auth: clerk.lemonade.gg • Deploy target: lemonade-cracked.vercel.app</small></p>
 </main>
 <script>
+let MODEL = "cracked-ultra", lastCode = "", lastType = "pvp";
 const $ = id => document.getElementById(id);
-let lastCode = "";
-$('gen').onclick = async () => {
-  $('gen').disabled = true;
-  $('status').textContent = "generating with ∞ credits...";
+document.getElementById("mcpUrl").textContent = location.origin + "/api/mcp";
+const qp = new URLSearchParams(location.search);
+if (qp.get("prompt")) $("prompt").value = qp.get("prompt");
+document.querySelectorAll(".model").forEach(m => m.onclick = () => {
+  document.querySelectorAll(".model").forEach(x => x.classList.remove("on"));
+  m.classList.add("on"); MODEL = m.dataset.m; $("mname").textContent = MODEL;
+});
+async function loadTemplates() {
   try {
-    const r = await fetch("/api/generate", {
-      method: "POST",
-      headers: {"content-type":"application/json"},
-      body: JSON.stringify({ prompt: $('prompt').value, jwt: $('jwt').value || null })
-    });
+    const r = await fetch("/api/mcp", { method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "list_templates", arguments: {} } }) });
     const j = await r.json();
-    lastCode = j.code || j.error || "-- empty";
-    $('out').textContent = lastCode;
-    $('status').textContent = "done • credits remaining: ∞";
-  } catch(e) {
-    $('status').textContent = "error: " + e.message;
-  }
-  $('gen').disabled = false;
+    const arr = JSON.parse(j.result.content[0].text);
+    $("tpls").innerHTML = arr.map(t => `<span class="tpl" data-p="${t.id}">${t.label}</span>`).join("");
+    document.querySelectorAll(".tpl").forEach(t => t.onclick = () => { $("gtype").value = t.dataset.p; $("prompt").value = t.dataset.p + " game with " + $("prompt").value.slice(0, 60); });
+    $("mcpStatus").textContent = "live ✓ 5 tools";
+  } catch (e) { $("mcpStatus").textContent = "unreachable"; }
+}
+loadTemplates();
+$("gen").onclick = async () => {
+  $("gen").disabled = true; $("log").innerHTML = "generating with <b class='ok'>∞</b> via " + MODEL + "…";
+  try {
+    const r = await fetch("/api/generate", { method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ prompt: $("prompt").value, model: MODEL, jwt: $("jwt").value || null }) });
+    const j = await r.json();
+    lastCode = j.code || JSON.stringify(j).slice(0, 8000); lastType = j.gameType || "pvp";
+    $("out").textContent = lastCode;
+    $("log").innerHTML = `<span class="ok">✓ done</span> · type ${lastType} · mode ${j.mode} · credits remaining: <b class="ok">∞</b>`;
+    try { localStorage.setItem("__last_luau", lastCode); } catch (e) {}
+  } catch (e) { $("log").textContent = "error: " + e.message; }
+  $("gen").disabled = false;
 };
-$('export').onclick = () => {
-  const blob = new Blob([lastCode || "-- empty"], {type:"text/plain"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "game.server.luau";
-  a.click();
+$("editBtn").onclick = async () => {
+  if (!lastCode) return $("log").textContent = "generate first";
+  const r = await fetch("/api/mcp", { method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify({ jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "edit_code", arguments: { code: lastCode, instruction: $("editIns").value || "polish" } } }) });
+  const j = await r.json(); lastCode = j.result.content[0].text; $("out").textContent = lastCode;
+  $("log").innerHTML = "<span class='ok'>✓ edit applied</span> · credits ∞";
 };
-try {
-  const saved = localStorage.getItem("__clerk_client_jwt") || localStorage.getItem("clerk_jwt");
-  if (saved) $('jwt').value = saved;
-} catch(e) {}
+$("copyBtn").onclick = () => { navigator.clipboard.writeText(lastCode || ""); $("log").textContent = "copied — paste into ServerScriptService Script"; };
+$("expBtn").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([lastCode || "-- empty"], { type: "text/plain" })); a.download = "game.server.luau"; a.click(); };
 </script>
 </body>
 </html>
