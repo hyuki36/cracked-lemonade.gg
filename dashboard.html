@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dashboard — Lemonade Cracked · $0 models · Studio MCP</title>
+<title>Dashboard — Lemonade Cracked · PRO-PLUS $0 · Studio MCP</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <script src="/crack.js"></script>
 <style>
@@ -11,19 +11,25 @@
 :root{--bg:#0a0a0a;--side:#101012;--panel:#141416;--panel2:#1a1b1e;--line:#2b2d31;--txt:#fafafa;--mut:#a7a7a7;--dim:#6f6f6f}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;display:flex;min-height:100vh}
 a{color:inherit;text-decoration:none}
-/* sidebar mirrors real dashboard, monochrome */
 aside{width:288px;background:var(--side);border-right:1px solid var(--line);padding:20px 16px;display:flex;flex-direction:column;gap:14px;min-height:100vh}
 .logo{font-family:Archivo;font-weight:900;font-size:22px;letter-spacing:.02em;display:flex;gap:10px;align-items:center}
 .logo i{width:30px;height:30px;border:2.5px solid #fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:15px}
 .newproj{background:#fff;color:#000;border-radius:12px;padding:13px 16px;font-weight:600;display:flex;gap:10px;align-items:center;cursor:pointer;border:1px solid #fff}
 .newproj:hover{background:transparent;color:#fff}
+.proplus{border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13px;display:flex;justify-content:space-between;align-items:center;background:var(--panel)}
+.proplus b{background:#fff;color:#000;border-radius:6px;padding:1px 8px;font-size:11px}
 .side-h{color:var(--mut);font-size:14px;display:flex;justify-content:space-between;padding:6px 6px 0}
-.side-p{color:var(--mut);font-size:14px;padding:0 6px}.arch{color:var(--txt);font-weight:600;padding:8px 6px}.arch span{float:right;color:var(--dim)}
-.srow{display:flex;gap:10px;align-items:center;color:var(--mut);font-size:14px;padding:9px 6px;border-top:1px solid var(--line)}
+.side-p{color:var(--mut);font-size:14px;padding:0 6px}
+.srow{display:flex;gap:10px;align-items:center;color:var(--mut);font-size:14px;padding:9px 6px;border-top:1px solid var(--line);cursor:pointer}
+.srow:hover{color:#fff}
+.keybox{border-top:1px solid var(--line);padding:12px 6px 0;font-size:12px;color:var(--mut)}
+.keybox input{width:100%;background:#0c0d0f;border:1px solid var(--line);border-radius:8px;color:#fff;padding:8px 10px;font-size:12px;margin-top:6px}
+.keybox input:focus{border-color:#fff;outline:0}
 .user{margin-top:auto;display:flex;gap:10px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
-.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#e5e5e5,#737373);display:flex;align-items:center;justify-content:center;color:#000;font-weight:800}
+.avatar{width:34px;height:34px;border-radius:50%;background:#2b2d31;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.linkbtn{margin-left:auto;border:1px solid var(--line);background:transparent;color:#fff;border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer}
+.linkbtn:hover{border-color:#fff}
 main{flex:1;min-width:0;background:radial-gradient(1000px 500px at 70% -10%,#1c1d20,transparent),var(--bg);display:flex;flex-direction:column}
-/* headline with glow wave */
 .hero{padding:56px 40px 10px;text-align:center}
 .hero h1{font-family:Archivo;font-weight:900;font-size:clamp(40px,5.6vw,76px);line-height:1;margin:0;letter-spacing:-.01em}
 .wave{background:linear-gradient(100deg,#555 20%,#fff 38%,#fff 42%,#555 60%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:wave 4.5s linear infinite}
@@ -33,7 +39,6 @@ main{flex:1;min-width:0;background:radial-gradient(1000px 500px at 70% -10%,#1c1
 .chips{display:flex;gap:10px;justify-content:center;margin:20px 0;flex-wrap:wrap}
 .chip{border:1px solid var(--line);background:#141416;border-radius:999px;padding:9px 18px;font-size:14px;color:var(--txt);cursor:pointer}
 .chip:hover{border-color:#fff}
-/* prompt bar with glow wave border */
 .stage{max-width:860px;margin:0 auto;width:100%;padding:0 24px 40px}
 .glowbox{border-radius:22px;padding:2px;background:conic-gradient(from var(--a),#333,#fafafa,#333,#777,#333);animation:spin 5s linear infinite}
 @keyframes spin{to{--a:360deg}}
@@ -47,7 +52,6 @@ textarea{width:100%;background:transparent;border:0;color:#fff;font-size:16px;mi
 .gen{margin-left:auto;background:#fff;color:#000;border:1px solid #fff;font-weight:700;border-radius:12px;padding:11px 26px;font-size:15px;cursor:pointer}
 .gen:hover{background:transparent;color:#fff}
 .gen:disabled{opacity:.5}
-/* modal exactly like screenshot */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
 .overlay.open{display:flex}
 .modal{background:#17181b;border:1px solid var(--line);border-radius:18px;width:min(760px,100%);display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;animation:fade .3s ease}
@@ -66,32 +70,37 @@ textarea{width:100%;background:transparent;border:0;color:#fff;font-size:16px;mi
 .segs{display:flex;gap:5px}.seg{height:8px;flex:1;border-radius:99px;background:#2e2f33}.seg.f{background:#fff;animation:grow .5s ease}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .mfoot{font-size:12px;color:var(--dim);margin-top:14px}
-/* output + studio */
+.linkmodal{background:#17181b;border:1px solid var(--line);border-radius:18px;width:min(440px,100%);padding:26px;animation:fade .3s ease}
+.linkmodal h3{margin:0 0 6px;font-size:20px;font-family:Archivo}
+.linkmodal p{color:var(--mut);font-size:14px;line-height:1.6}
+.linkmodal input{width:100%;background:#0c0d0f;border:1px solid var(--line);border-radius:10px;color:#fff;padding:12px 14px;font-size:15px;margin-top:10px}
+.linkmodal input:focus{border-color:#fff;outline:0;box-shadow:0 0 18px rgba(255,255,255,.15)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
 pre#out{background:#0c0d0f;border:1px solid var(--line);border-radius:14px;padding:16px;font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;max-height:380px;overflow:auto;margin:0;min-height:200px}
 .panel{background:#0c0d0f;border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13px;max-height:380px;overflow:auto}
 .panel h5{margin:0 0 8px;font-size:12px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase}
 #log{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mut);margin-top:10px;min-height:22px}
-.ok{color:#fff}.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.ok{color:#fff}.warn{color:#fff;font-weight:700}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 .ibtn{background:transparent;border:1px solid var(--line);color:#fff;border-radius:10px;padding:9px 15px;font-size:13px;cursor:pointer}
 .ibtn:hover{border-color:#fff}
 input.txt{background:#0c0d0f;border:1px solid var(--line);border-radius:10px;color:#fff;padding:10px 12px;font-size:13px;flex:1;min-width:160px}
 input.txt:focus{border-color:#fff;outline:0;box-shadow:0 0 18px rgba(255,255,255,.15)}
 code{background:#000;border:1px solid var(--line);padding:2px 7px;border-radius:6px;font-size:12px}
-@media(max-width:900px){aside{display:none}.modal{grid-template-columns:1fr}.mleft{border-right:0;border-bottom:1px solid var(--line}}.grid2{grid-template-columns:1fr}}
+@media(max-width:900px){aside{display:none}.modal{grid-template-columns:1fr}.mleft{border-right:0;border-bottom:1px solid var(--line)}.grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <aside>
   <div class="logo"><i>L</i> LEMONADE</div>
   <div class="newproj" onclick="location.reload()">＋ New Project</div>
+  <div class="proplus"><span>Plan</span><b>PRO-PLUS · $0</b></div>
   <div class="side-h"><span>Recent projects</span><span>0</span></div>
   <div class="side-p">Your first build will appear here.</div>
-  <div class="arch">Archived <span>2</span></div>
-  <div class="side-p">▤ DADA<br/><br/>▤ CC</div>
-  <div class="srow">🔧 Download plugin <span style="margin-left:auto">↗</span></div>
-  <div class="srow">▤ Billing <span style="margin-left:auto">↗</span></div>
-  <div class="user"><div class="avatar">1E</div><div><b style="font-size:14px">1Era_XD</b><br/><small style="color:var(--mut)">cracked · $0 · ∞</small></div></div>
+  <div class="srow" onclick="document.getElementById('linkBtn').click()">🔧 Download plugin <span style="margin-left:auto">↗</span></div>
+  <div class="srow">▤ Billing — $0.00 <span style="margin-left:auto">↗</span></div>
+  <div class="keybox">GPT key (yours, this browser only)<input id="keyIn" type="password" placeholder="sk-… (optional, GPT-6 Luna only)" autocomplete="off"/></div>
+  <div class="user"><div class="avatar" id="avatar">G</div><div><b style="font-size:14px" id="uname">Guest</b><br/><small style="color:var(--mut)" id="usub">not linked</small></div><button class="linkbtn" id="linkBtn">Connect</button></div>
 </aside>
 <main>
   <div class="hero">
@@ -106,10 +115,10 @@ code{background:#000;border:1px solid var(--line);padding:2px 7px;border-radius:
         <div class="credits">▤ <b>∞</b> · $0.00</div>
         <button class="gen" id="gen">✦ Generate</button>
       </div>
-      <div id="log">idle — pick a model, all free, ∞ armed.</div>
+      <div id="log">idle — link Roblox (Connect) to send. Ctrl+Enter also sends.</div>
     </div></div>
     <div class="grid2">
-      <pre id="out">-- output: pick Generate, code lands here
+      <pre id="out">-- output: link Roblox, hit Generate, code lands here
 -- paste into ServerScriptService Script, Play</pre>
       <div class="panel">
         <h5>Studio MCP — full control</h5>
@@ -122,7 +131,7 @@ code{background:#000;border:1px solid var(--line);padding:2px 7px;border-radius:
         </div>
         <div class="row"><input class="txt" id="mcpArg" placeholder="create: Part name · delete: target name"/></div>
         <div class="row"><button class="ibtn" id="copyBtn">Copy Luau</button><button class="ibtn" id="expBtn">Export .luau</button><a class="ibtn" href="/plugin/lemonade-cracked-plugin.server.luau">Plugin ↓</a></div>
-        <p style="color:var(--mut);font-size:12px;line-height:1.7">MCP <code>/api/mcp</code>: <span id="mcpStatus">checking…</span><br/>Plugin <code>loadstring</code>-executes answers <b>inside Studio</b> — build, spawn, delete, GUI, lighting, edits. No key. No billing.</p>
+        <p style="color:var(--mut);font-size:12px;line-height:1.7">MCP <code>/api/mcp</code>: <span id="mcpStatus">checking…</span><br/>Plugin <code>loadstring</code>-executes answers <b>inside Studio</b>. No billing, ever.</p>
       </div>
     </div>
   </div>
@@ -131,9 +140,16 @@ code{background:#000;border:1px solid var(--line);padding:2px 7px;border-radius:
   <div class="mleft"><h3>Choose a model</h3>
     <div class="tabs"><button class="tab on" data-t="all">All</button><button class="tab" data-t="recommended">Recommended</button><button class="tab" data-t="lowcost">Low cost</button><button class="tab" data-t="advanced">Advanced</button></div>
     <div id="mlist"></div>
-    <div class="mfoot">$0 on this build — list prices struck through, you pay nothing, credits stay ∞.</div>
+    <div class="mfoot">PRO-PLUS · $0 on this build — list prices struck through, you pay nothing, credits stay ∞.</div>
   </div>
   <div class="mright"><h4><span id="dName">GLM 5.3 Flash</span><span id="dCost" style="color:var(--mut)">$</span></h4><div style="font-size:13px;color:var(--mut)">Performance</div><div id="dBars"></div><div class="mfoot" id="dDesc"></div></div>
+</div></div>
+<div class="overlay" id="ovLink"><div class="linkmodal">
+  <h3>Connect ON Roblox first</h3>
+  <p>Sending messages needs a linked Roblox account. Type your username — we verify it against Roblox, then every send carries your identity. Nothing is billed.</p>
+  <input id="rxName" placeholder="Roblox username, e.g. Builderman" autocomplete="off"/>
+  <div class="row"><button class="gen" id="doLink" style="margin-left:0">Verify + Link</button><button class="ibtn" id="closeLink">Later</button></div>
+  <div id="rxStatus" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);margin-top:10px;min-height:20px"></div>
 </div></div>
 <script>
 let MODEL = "glm-5.3-flash", MODELS = [], lastCode = "";
@@ -141,6 +157,64 @@ const $ = id => document.getElementById(id);
 const qp = new URLSearchParams(location.search);
 if (qp.get("prompt")) $("prompt").value = qp.get("prompt");
 document.querySelectorAll(".chip").forEach(c => c.onclick = () => $("prompt").value = c.dataset.p);
+$("prompt").addEventListener("keydown", e => { if ((e.ctrlKey || e.metaKey) && e.key === "Enter") $("gen").click(); });
+// ---- identity: Roblox link gate ----
+const rxUser = () => { try { return JSON.parse(localStorage.getItem("rx_link") || "null"); } catch (e) { return null; } };
+function refreshUser() {
+  const u = rxUser();
+  if (u && u.name) {
+    $("uname").textContent = "@" + u.name;
+    $("avatar").textContent = u.name[0].toUpperCase();
+    $("usub").textContent = u.verified ? ("id " + u.id + " · verified") : "linked · unverified";
+    $("linkBtn").textContent = "Linked ✓";
+  } else {
+    $("uname").textContent = "Guest"; $("avatar").textContent = "G";
+    $("usub").textContent = "not linked"; $("linkBtn").textContent = "Connect";
+  }
+}
+refreshUser();
+$("linkBtn").onclick = () => { $("ovLink").classList.add("open"); };
+$("closeLink").onclick = () => $("ovLink").classList.remove("open");
+$("doLink").onclick = async () => {
+  const name = $("rxName").value.trim();
+  if (!name) { $("rxStatus").textContent = "type a username first"; return; }
+  $("rxStatus").textContent = "verifying against Roblox…";
+  try {
+    const r = await fetch("https://users.roblox.com/v1/usernames/users", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ usernames: [name], excludeBannedUsers: true }) });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json();
+    const hit = j.data && j.data[0];
+    if (!hit) throw new Error("username not found");
+    localStorage.setItem("rx_link", JSON.stringify({ name: hit.name, id: hit.id, verified: true }));
+    $("rxStatus").textContent = "✓ @" + hit.name + " (id " + hit.id + ") — you can send now.";
+  } catch (e) {
+    localStorage.setItem("rx_link", JSON.stringify({ name, id: null, verified: false }));
+    $("rxStatus").textContent = "couldn't verify (" + e.message + ") — linked locally, sending enabled. Re-verify later.";
+  }
+  refreshUser();
+};
+function needLink() {
+  const u = rxUser();
+  if (u && u.name) return false;
+  $("ovLink").classList.add("open");
+  $("log").innerHTML = "<span class='warn'>⚠ Connect ON Roblox first</span> — link your username above, then send. Sending is free.";
+  return true;
+}
+// ---- own GPT key (browser only, GPT-6 Luna assist) ----
+$("keyIn").value = localStorage.getItem("openai_key") || "";
+$("keyIn").onchange = () => { localStorage.setItem("openai_key", $("keyIn").value.trim()); $("log").textContent = $("keyIn").value.trim() ? "key saved in this browser only — GPT-6 Luna will use it." : "key cleared — back to free models."; };
+async function aiExpand(prompt) {
+  const key = (localStorage.getItem("openai_key") || "").trim();
+  if (!key) return { prompt, via: null };
+  try {
+    const r = await fetch("https://api.openai.com/v1/chat/completions", { method: "POST", headers: { "content-type": "application/json", "authorization": "Bearer " + key }, body: JSON.stringify({ model: "gpt-4o-mini", messages: [{ role: "system", content: "Expand a Roblox game idea into one detailed build-spec line (mechanics, stats, colors). Max 60 words." }, { role: "user", content: prompt }], max_tokens: 120 }) });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json();
+    const t = (j.choices[0].message.content || "").trim();
+    return { prompt: prompt + ". Spec: " + t, via: "your key" };
+  } catch (e) { return { prompt, via: "key failed (" + e.message + ") — free fallback" }; }
+}
+// ---- models ----
 $("openModal").onclick = () => $("ov").classList.add("open");
 $("ov").onclick = e => { if (e.target.id === "ov") $("ov").classList.remove("open"); };
 document.querySelectorAll(".tab").forEach(t => t.onclick = () => {
@@ -159,13 +233,14 @@ function selectModel(id) {
   $("mname").textContent = m.name;
   $("dName").textContent = m.name;
   $("dCost").textContent = m.listPrice + " → $0";
-  $("dDesc").textContent = id === "glm-5.3-flash" ? "Compact zero-fluff builds. Fastest round-trip for iterating gameplay." : id === "gemini-3.7-flash" ? "Commented step-by-step code. Best readability-to-quality ratio." : id === "composer-2.5" ? "Deluxe scenes: atmosphere lighting, title billboard, doubled rewards." : "All-round structure and economy tuning. Top marks everywhere.";
+  $("dDesc").textContent = id === "glm-5.3-flash" ? "Compact zero-fluff builds. Fastest round-trip." : id === "gemini-3.7-flash" ? "Commented step-by-step code. Best readability." : id === "composer-2.5" ? "Deluxe scenes: lighting, billboard, doubled rewards." : id === "gpt-6-luna" ? "All-rounder. Paste your own key left for OpenAI assist, or free engine." : "Real backend via your Clerk JWT.";
   $("dBars").innerHTML = `<div class="prow"><div class="t"><span>Simple tasks</span></div>${bars(m.performance.simple)}</div><div class="prow"><div class="t"><span>Complex tasks</span></div>${bars(m.performance.complex)}</div><div class="prow"><div class="t"><span>Speed</span></div>${bars(m.performance.speed)}</div>`;
   renderList(document.querySelector(".tab.on").dataset.t);
 }
 async function init() {
   try {
-    const r = await fetch("/api/models"); const j = await r.json();
+    const r = await fetch("/api/models"); if (!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json();
     MODELS = j.models.filter(m => m.id !== "convex-real");
     const cv = j.models.find(m => m.id === "convex-real");
     if (cv) MODELS.push({ ...cv, name: "Convex Real (JWT)" });
@@ -173,30 +248,42 @@ async function init() {
     $("mcpStatus").textContent = "live ✓ " + j.mcp.tools.length + " tools";
   } catch (e) {
     MODELS = [{ id: "glm-5.3-flash", name: "GLM 5.3 Flash", listPrice: "$", tab: "recommended", badge: null, performance: { simple: 4, complex: 3, speed: 5 } }];
-    selectModel("glm-5.3-flash"); $("mcpStatus").textContent = "offline — local fallback";
+    selectModel("glm-5.3-flash"); $("mcpStatus").textContent = "registry offline (" + e.message + ") — local fallback";
   }
 }
 init();
+// ---- send (gated) ----
 $("gen").onclick = async () => {
-  $("gen").disabled = true; $("log").innerHTML = "generating with <b class='ok'>" + MODEL + "</b> · $0.00 · ∞…";
+  if (needLink()) return;
+  const u = rxUser();
+  $("gen").disabled = true; $("log").textContent = "sending as @" + u.name + " via " + MODEL + " · $0.00…";
   try {
-    const r = await fetch("/api/generate", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ prompt: $("prompt").value, model: MODEL }) });
-    const j = await r.json(); lastCode = j.code;
+    let finalPrompt = $("prompt").value, via = null;
+    if (MODEL === "gpt-6-luna") { const ex = await aiExpand(finalPrompt); finalPrompt = ex.prompt; via = ex.via; }
+    const r = await fetch("/api/generate", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ prompt: "[" + u.name + "] " + finalPrompt, model: MODEL }) });
+    if (!r.ok) throw new Error("server HTTP " + r.status);
+    const j = await r.json();
+    if (!j.code) throw new Error("empty response");
+    lastCode = j.code;
     $("out").textContent = lastCode;
-    $("log").innerHTML = `<span class="ok">✓ done</span> · ${j.gameType} · ${j.mode} · charged <b class="ok">$0.00</b> · credits <b class="ok">∞</b>`;
-  } catch (e) { $("log").textContent = "error: " + e.message; }
+    $("log").innerHTML = `<span class="ok">✓ sent + built</span> · ${j.gameType} · ${j.mode}${via ? " · " + via : ""} · charged <b class="ok">$0.00</b> · credits <b class="ok">∞</b>`;
+  } catch (e) { $("log").innerHTML = "<span class='warn'>✕ send failed:</span> " + e.message + " — retry, or check /api/models in a new tab."; }
   $("gen").disabled = false;
 };
 async function studio(a) {
+  if (needLink()) return;
   const arg = $("mcpArg").value.trim();
   let params = { name: a === "build" ? "studio_build" : "studio_" + a, arguments: {} };
   if (a === "build") params.arguments = { prompt: $("prompt").value, model: MODEL };
   if (a === "create") params.arguments = { className: "Part", name: arg.replace(/[^A-Za-z0-9_]/g, "") || "CrackedPart" };
   if (a === "delete") { if (!arg) return $("log").textContent = "type a target name first"; params.arguments = { target: arg }; }
   $("log").textContent = "mcp " + params.name + " …";
-  const r = await fetch("/api/mcp", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params }) });
-  const j = await r.json(); lastCode = j.result.content[0].text; $("out").textContent = lastCode;
-  $("log").innerHTML = "<span class='ok'>✓ executable Luau ready</span> — Copy/Export into Studio, or let the plugin run it. $0 · ∞";
+  try {
+    const r = await fetch("/api/mcp", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params }) });
+    if (!r.ok) throw new Error("server HTTP " + r.status);
+    const j = await r.json(); lastCode = j.result.content[0].text; $("out").textContent = lastCode;
+    $("log").innerHTML = "<span class='ok'>✓ executable Luau ready</span> — Copy/Export into Studio, or let the plugin run it. $0 · ∞";
+  } catch (e) { $("log").innerHTML = "<span class='warn'>✕ mcp failed:</span> " + e.message; }
 }
 document.querySelectorAll("[data-a]").forEach(b => b.onclick = () => studio(b.dataset.a));
 $("copyBtn").onclick = () => { navigator.clipboard.writeText(lastCode || ""); $("log").textContent = "copied — ServerScriptService > Script > paste > Play"; };
