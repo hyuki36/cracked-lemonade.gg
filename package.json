@@ -1,0 +1,10 @@
+{
+  "name": "lemonade-cracked",
+  "version": "1.0.0-cracked",
+  "private": true,
+  "description": "cracked lemonade.gg mirror - inf credits client patch, deploys as lemonade-cracked.vercel.app",
+  "scripts": {
+    "dev": "npx serve .",
+    "deploy": "vercel --prod"
+  }
+}

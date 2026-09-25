@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Lemonade Cracked — ∞ Credits</title>
+<script src="/crack.js"></script>
+<style>
+  body{background:#0a0f0d;color:#e8fff3;font-family:Inter,system-ui,sans-serif;margin:0}
+  header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #123}
+  .badge{background:#00ffa3;color:#003322;font-weight:800;padding:6px 14px;border-radius:999px}
+  main{max-width:860px;margin:32px auto;padding:0 20px}
+  textarea{width:100%;min-height:110px;background:#0e1512;color:#fff;border:1px solid #1e3a2f;border-radius:12px;padding:14px;font-size:15px}
+  button{background:#00ffa3;border:0;font-weight:800;padding:12px 20px;border-radius:12px;cursor:pointer;margin-top:12px}
+  button:disabled{opacity:.5}
+  pre{background:#0e1512;border:1px solid #1e3a2f;border-radius:12px;padding:14px;white-space:pre-wrap;max-height:420px;overflow:auto}
+  .row{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
+  input{background:#0e1512;border:1px solid #1e3a2f;color:#fff;border-radius:10px;padding:10px 12px;flex:1;min-width:220px}
+  small{color:#7aa894}
+  a{color:#00ffa3}
+</style>
+</head>
+<body>
+<header>
+  <div><b>🍋 Lemonade Cracked</b> <small>cracked-lemonade.gg</small></div>
+  <div class="badge">∞ credits • pro-inf</div>
+</header>
+<main>
+  <h2>Generate — no limits</h2>
+  <p><small>Credits are patched client-side to <b>∞</b> via <code>/crack.js</code>. Paste your Clerk JWT from <code>lemonade.gg/dashboard</code> (DevTools → Application → Local Storage → <code>__clerk_client_jwt</code>) to proxy to the real Convex backend <code>https://cloud.lemonade.gg</code>. No JWT = demo Luau template.</small></p>
+  <textarea id="prompt" placeholder="e.g. brainrot pvp arena with swords, aura farm...">brainrot pvp arena with swords</textarea>
+  <div class="row">
+    <input id="jwt" placeholder="Clerk JWT (optional — enables real backend)"/>
+    <button id="gen">Generate ∞</button>
+    <button id="export">Export .luau</button>
+  </div>
+  <p><small>Status: <span id="status">idle — inf credits active</span></small></p>
+  <pre id="out">-- output will appear here</pre>
+  <p><small>Original: <a href="https://lemonade.gg">lemonade.gg</a> • Backend: <a href="https://cloud.lemonade.gg">cloud.lemonade.gg</a> • Auth: clerk.lemonade.gg • Deploy target: lemonade-cracked.vercel.app</small></p>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let lastCode = "";
+$('gen').onclick = async () => {
+  $('gen').disabled = true;
+  $('status').textContent = "generating with ∞ credits...";
+  try {
+    const r = await fetch("/api/generate", {
+      method: "POST",
+      headers: {"content-type":"application/json"},
+      body: JSON.stringify({ prompt: $('prompt').value, jwt: $('jwt').value || null })
+    });
+    const j = await r.json();
+    lastCode = j.code || j.error || "-- empty";
+    $('out').textContent = lastCode;
+    $('status').textContent = "done • credits remaining: ∞";
+  } catch(e) {
+    $('status').textContent = "error: " + e.message;
+  }
+  $('gen').disabled = false;
+};
+$('export').onclick = () => {
+  const blob = new Blob([lastCode || "-- empty"], {type:"text/plain"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "game.server.luau";
+  a.click();
+};
+try {
+  const saved = localStorage.getItem("__clerk_client_jwt") || localStorage.getItem("clerk_jwt");
+  if (saved) $('jwt').value = saved;
+} catch(e) {}
+</script>
+</body>
+</html>
