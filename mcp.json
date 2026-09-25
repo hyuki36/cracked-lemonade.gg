@@ -3,7 +3,7 @@
     "lemonade-cracked": {
       "url": "https://cracked-lemonade.vercel.app/api/mcp",
       "transport": "http",
-      "notes": "POST JSON-RPC. Methods: initialize, tools/list, tools/call {generate_game, edit_code, list_templates, list_models, studio_setup}. Dashboard: /dashboard. Models: /api/models."
+      "notes": "POST JSON-RPC: initialize, tools/list, tools/call {generate_game, edit_code, list_templates, list_models, studio_setup, studio_build, studio_create, studio_delete, studio_gui, studio_lighting}. Free models: glm-5.3-flash, gemini-3.7-flash, composer-2.5, gpt-6-luna. Dashboard /dashboard, registry /api/models."
     }
   }
 }

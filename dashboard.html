@@ -3,98 +3,203 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Builder ∞ — Lemonade Cracked · Models + MCP + Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<title>Dashboard — Lemonade Cracked · $0 models · Studio MCP</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <script src="/crack.js"></script>
 <style>
-:root{--bg:#070b09;--panel:#0c120f;--panel2:#0f1613;--line:#1c2f26;--lime:#b6ff3b;--aqua:#00ffa3;--txt:#efffF5;--mut:#8fb5a3}
+@property --a { syntax:'<angle>'; initial-value:0deg; inherits:false; }
+:root{--bg:#0a0a0a;--side:#101012;--panel:#141416;--panel2:#1a1b1e;--line:#2b2d31;--txt:#fafafa;--mut:#a7a7a7;--dim:#6f6f6f}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;display:flex;min-height:100vh}
-aside{width:300px;background:var(--panel);border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:16px}
-main{flex:1;display:flex;flex-direction:column;min-width:0}
-header{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);background:#0a0f0ccc;position:sticky;top:0;z-index:5}
-h1{font-family:"Space Grotesk";font-size:18px;margin:0}.badge{background:linear-gradient(135deg,var(--lime),var(--aqua));color:#06130c;font-weight:800;padding:6px 12px;border-radius:999px;font-size:13px}
-.sec{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--panel2)}.sec h4{margin:0 0 10px;font-size:12px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase}
-.model{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:8px;cursor:pointer}.model.on{border-color:var(--aqua);box-shadow:0 0 0 1px var(--aqua)}.model b{font-size:14px}.model small{color:var(--mut);display:block;font-size:12px}
-.tpl{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:12px;margin:0 6px 6px 0;cursor:pointer}.tpl:hover{border-color:var(--aqua)}
-.work{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:0}
-.left{border-right:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:12px}
-.right{background:#080d0a;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
-textarea{width:100%;min-height:96px;background:#070b09;border:1px solid var(--line);border-radius:12px;color:#fff;padding:13px;font-size:14px;resize:vertical}
-.row{display:flex;gap:10px;flex-wrap:wrap}.btn{background:linear-gradient(135deg,var(--lime),var(--aqua));border:0;font-weight:800;padding:11px 18px;border-radius:11px;cursor:pointer;color:#06130c}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}.btn:disabled{opacity:.5}
-input,select{background:#070b09;border:1px solid var(--line);color:#fff;border-radius:10px;padding:10px 12px;font-size:13px}select{flex:1}input{flex:2;min-width:180px}
-pre#out{background:#05080 6;background:#050806;border:1px solid var(--line);border-radius:12px;padding:16px;font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;flex:1;overflow:auto;max-height:56vh;margin:0}
-#log{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mut);min-height:40px}.ok{color:var(--aqua)}
-details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px}summary{cursor:pointer;font-weight:700}code{background:#000;padding:2px 6px;border-radius:6px;color:var(--lime)}
-a{color:var(--aqua)}
-@media(max-width:960px){aside{display:none}.work{grid-template-columns:1fr}}
+a{color:inherit;text-decoration:none}
+/* sidebar mirrors real dashboard, monochrome */
+aside{width:288px;background:var(--side);border-right:1px solid var(--line);padding:20px 16px;display:flex;flex-direction:column;gap:14px;min-height:100vh}
+.logo{font-family:Archivo;font-weight:900;font-size:22px;letter-spacing:.02em;display:flex;gap:10px;align-items:center}
+.logo i{width:30px;height:30px;border:2.5px solid #fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:15px}
+.newproj{background:#fff;color:#000;border-radius:12px;padding:13px 16px;font-weight:600;display:flex;gap:10px;align-items:center;cursor:pointer;border:1px solid #fff}
+.newproj:hover{background:transparent;color:#fff}
+.side-h{color:var(--mut);font-size:14px;display:flex;justify-content:space-between;padding:6px 6px 0}
+.side-p{color:var(--mut);font-size:14px;padding:0 6px}.arch{color:var(--txt);font-weight:600;padding:8px 6px}.arch span{float:right;color:var(--dim)}
+.srow{display:flex;gap:10px;align-items:center;color:var(--mut);font-size:14px;padding:9px 6px;border-top:1px solid var(--line)}
+.user{margin-top:auto;display:flex;gap:10px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#e5e5e5,#737373);display:flex;align-items:center;justify-content:center;color:#000;font-weight:800}
+main{flex:1;min-width:0;background:radial-gradient(1000px 500px at 70% -10%,#1c1d20,transparent),var(--bg);display:flex;flex-direction:column}
+/* headline with glow wave */
+.hero{padding:56px 40px 10px;text-align:center}
+.hero h1{font-family:Archivo;font-weight:900;font-size:clamp(40px,5.6vw,76px);line-height:1;margin:0;letter-spacing:-.01em}
+.wave{background:linear-gradient(100deg,#555 20%,#fff 38%,#fff 42%,#555 60%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:wave 4.5s linear infinite}
+@keyframes wave{0%{background-position:180% 0}100%{background-position:-80% 0}}
+.fade{opacity:0;transform:translateY(18px);animation:fade .8s ease forwards}
+@keyframes fade{to{opacity:1;transform:none}}
+.chips{display:flex;gap:10px;justify-content:center;margin:20px 0;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#141416;border-radius:999px;padding:9px 18px;font-size:14px;color:var(--txt);cursor:pointer}
+.chip:hover{border-color:#fff}
+/* prompt bar with glow wave border */
+.stage{max-width:860px;margin:0 auto;width:100%;padding:0 24px 40px}
+.glowbox{border-radius:22px;padding:2px;background:conic-gradient(from var(--a),#333,#fafafa,#333,#777,#333);animation:spin 5s linear infinite}
+@keyframes spin{to{--a:360deg}}
+.box{background:#101012;border-radius:20px;padding:22px}
+textarea{width:100%;background:transparent;border:0;color:#fff;font-size:16px;min-height:64px;resize:vertical;outline:0;font-family:Inter}
+.bar{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.modpill{border:1px solid var(--line);background:#1a1b1e;border-radius:12px;padding:10px 14px;font-size:14px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.modpill:hover{border-color:#fff}
+.credits{border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14px;color:var(--mut);display:flex;gap:8px;align-items:center}
+.credits b{color:#fff}
+.gen{margin-left:auto;background:#fff;color:#000;border:1px solid #fff;font-weight:700;border-radius:12px;padding:11px 26px;font-size:15px;cursor:pointer}
+.gen:hover{background:transparent;color:#fff}
+.gen:disabled{opacity:.5}
+/* modal exactly like screenshot */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.overlay.open{display:flex}
+.modal{background:#17181b;border:1px solid var(--line);border-radius:18px;width:min(760px,100%);display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;animation:fade .3s ease}
+.mleft{padding:22px;border-right:1px solid var(--line)}.mleft h3{margin:0 0 14px;font-size:19px}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:transparent;color:var(--mut);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer}
+.tab.on{background:#fff;color:#000;border-color:#fff;font-weight:600}
+.mitem{border:1px solid transparent;border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:center;cursor:pointer}
+.mitem:hover{background:#202124}.mitem.on{border-color:#fff;background:#202124}
+.mitem .ic{width:34px;height:34px;border-radius:9px;background:#000;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800}
+.mitem small{display:block;color:var(--mut);font-size:12px}
+.badge50{background:#1c2b1c;border:1px solid #3a5a3a;color:#9ae69a;border-radius:999px;font-size:11px;padding:2px 9px;margin-left:8px}
+.price{margin-left:auto;color:var(--mut);font-size:14px}.price b{color:#fff}.price s{color:var(--dim);font-size:12px}
+.mright{padding:22px}.mright h4{margin:0 0 4px;font-size:17px;display:flex;justify-content:space-between}
+.prow{margin-top:12px;font-size:13px;color:var(--mut)}.prow .t{display:flex;justify-content:space-between;margin-bottom:6px}
+.segs{display:flex;gap:5px}.seg{height:8px;flex:1;border-radius:99px;background:#2e2f33}.seg.f{background:#fff;animation:grow .5s ease}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.mfoot{font-size:12px;color:var(--dim);margin-top:14px}
+/* output + studio */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+pre#out{background:#0c0d0f;border:1px solid var(--line);border-radius:14px;padding:16px;font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;max-height:380px;overflow:auto;margin:0;min-height:200px}
+.panel{background:#0c0d0f;border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13px;max-height:380px;overflow:auto}
+.panel h5{margin:0 0 8px;font-size:12px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase}
+#log{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mut);margin-top:10px;min-height:22px}
+.ok{color:#fff}.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.ibtn{background:transparent;border:1px solid var(--line);color:#fff;border-radius:10px;padding:9px 15px;font-size:13px;cursor:pointer}
+.ibtn:hover{border-color:#fff}
+input.txt{background:#0c0d0f;border:1px solid var(--line);border-radius:10px;color:#fff;padding:10px 12px;font-size:13px;flex:1;min-width:160px}
+input.txt:focus{border-color:#fff;outline:0;box-shadow:0 0 18px rgba(255,255,255,.15)}
+code{background:#000;border:1px solid var(--line);padding:2px 7px;border-radius:6px;font-size:12px}
+@media(max-width:900px){aside{display:none}.modal{grid-template-columns:1fr}.mleft{border-right:0;border-bottom:1px solid var(--line}}.grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <aside>
-  <div><b>🍋 Builder ∞</b><br/><small style="color:var(--mut)">models + mcp + studio</small></div>
-  <div class="sec"><h4>Model (functional)</h4><div id="models"><div class="model on" data-m="cracked-ultra"><div>⚡<br/></div><div><b>Cracked Ultra</b><small>instant · 8 types · no key</small></div></div><div class="model" data-m="convex-real"><div>🌐</div><div><b>Convex Real</b><small>real backend · needs JWT</small></div></div></div></div>
-  <div class="sec"><h4>Templates</h4><div id="tpls"></div></div>
-  <div class="sec"><h4>MCP</h4><div style="font-size:13px;color:var(--mut)">Endpoint<br/><code id="mcpUrl">/api/mcp</code><br/><br/>Status: <b id="mcpStatus" style="color:var(--aqua)">checking…</b><br/><br/><a href="/plugin/lemonade-cracked-plugin.server.luau">Studio plugin ↓</a> · <a href="/mcp.json">mcp.json</a></div></div>
-  <div class="sec"><h4>Studio quickstart</h4><div style="font-size:12.5px;color:var(--mut);line-height:1.7">1. HTTP Requests ON<br/>2. Generate → Export .luau<br/>3. ServerScriptService → paste → Play</div></div>
+  <div class="logo"><i>L</i> LEMONADE</div>
+  <div class="newproj" onclick="location.reload()">＋ New Project</div>
+  <div class="side-h"><span>Recent projects</span><span>0</span></div>
+  <div class="side-p">Your first build will appear here.</div>
+  <div class="arch">Archived <span>2</span></div>
+  <div class="side-p">▤ DADA<br/><br/>▤ CC</div>
+  <div class="srow">🔧 Download plugin <span style="margin-left:auto">↗</span></div>
+  <div class="srow">▤ Billing <span style="margin-left:auto">↗</span></div>
+  <div class="user"><div class="avatar">1E</div><div><b style="font-size:14px">1Era_XD</b><br/><small style="color:var(--mut)">cracked · $0 · ∞</small></div></div>
 </aside>
 <main>
-  <header><a href="/" style="font-weight:800">←</a><h1>Generate — <span class="badge">∞ credits · <span id="mname">cracked-ultra</span></span></h1><span style="flex:1"></span><button class="btn ghost" id="copyBtn">Copy Luau</button><button class="btn ghost" id="expBtn">Export .luau</button></header>
-  <div class="work">
-    <div class="left">
-      <textarea id="prompt" placeholder="Describe your Roblox game…">brainrot pvp arena with swords</textarea>
-      <div class="row"><select id="gtype"><option value="auto">auto-detect type</option><option>pvp</option><option>tycoon</option><option>simulator</option><option>obby</option><option>shooter</option><option>survival</option><option>farm</option><option>pet</option></select><input id="jwt" placeholder="Clerk JWT (only for convex-real)"/></div>
-      <div class="row"><button class="btn" id="gen">Generate ∞</button><button class="btn ghost" id="editBtn">Apply edit ↓</button></div>
-      <input id="editIns" placeholder="Edit: e.g. double rewards, red base, speed 32"/>
-      <div id="log">idle — ∞ armed. models + mcp live.</div>
-      <details><summary>How MCP + models plug into Roblox Studio</summary><p>Models emit full <code>ServerScriptService</code> Luau (baseplate, spawn, leaderstats, tool). MCP at <code>/api/mcp</code> exposes <code>generate_game / edit_code / list_templates / studio_setup</code> over JSON-RPC — Cursor, Claude, or the <a href="/plugin/lemonade-cracked-plugin.server.luau">Studio plugin</a> calls it with <code>HttpService:PostAsync</code>. No key needed for <code>cracked-ultra</code>; paste a Clerk JWT only for <code>convex-real</code>.</p></details>
+  <div class="hero">
+    <h1 class="fade"><span class="wave">DESCRIBE A</span><br/><span class="wave">MECHANIC</span></h1>
+    <div class="chips fade" style="animation-delay:.15s"><span class="chip" data-p="Add a building mechanic">Add a building mechanic</span><span class="chip" data-p="Add day-night survival waves">Survival waves</span><span class="chip" data-p="Add a pet egg shop">Pet egg shop</span></div>
+  </div>
+  <div class="stage">
+    <div class="glowbox"><div class="box">
+      <textarea id="prompt">Add a building mechanic</textarea>
+      <div class="bar">
+        <div class="modpill" id="openModal">◉ <b id="mname">GLM 5.3 Flash</b> ▾</div>
+        <div class="credits">▤ <b>∞</b> · $0.00</div>
+        <button class="gen" id="gen">✦ Generate</button>
+      </div>
+      <div id="log">idle — pick a model, all free, ∞ armed.</div>
+    </div></div>
+    <div class="grid2">
+      <pre id="out">-- output: pick Generate, code lands here
+-- paste into ServerScriptService Script, Play</pre>
+      <div class="panel">
+        <h5>Studio MCP — full control</h5>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="ibtn" data-a="build">Build game</button>
+          <button class="ibtn" data-a="create">+ Part</button>
+          <button class="ibtn" data-a="delete">Delete</button>
+          <button class="ibtn" data-a="gui">GUI</button>
+          <button class="ibtn" data-a="lighting">Lighting</button>
+        </div>
+        <div class="row"><input class="txt" id="mcpArg" placeholder="create: Part name · delete: target name"/></div>
+        <div class="row"><button class="ibtn" id="copyBtn">Copy Luau</button><button class="ibtn" id="expBtn">Export .luau</button><a class="ibtn" href="/plugin/lemonade-cracked-plugin.server.luau">Plugin ↓</a></div>
+        <p style="color:var(--mut);font-size:12px;line-height:1.7">MCP <code>/api/mcp</code>: <span id="mcpStatus">checking…</span><br/>Plugin <code>loadstring</code>-executes answers <b>inside Studio</b> — build, spawn, delete, GUI, lighting, edits. No key. No billing.</p>
+      </div>
     </div>
-    <div class="right"><pre id="out">-- output appears here
--- pick a model + template, hit Generate ∞</pre></div>
   </div>
 </main>
+<div class="overlay" id="ov"><div class="modal">
+  <div class="mleft"><h3>Choose a model</h3>
+    <div class="tabs"><button class="tab on" data-t="all">All</button><button class="tab" data-t="recommended">Recommended</button><button class="tab" data-t="lowcost">Low cost</button><button class="tab" data-t="advanced">Advanced</button></div>
+    <div id="mlist"></div>
+    <div class="mfoot">$0 on this build — list prices struck through, you pay nothing, credits stay ∞.</div>
+  </div>
+  <div class="mright"><h4><span id="dName">GLM 5.3 Flash</span><span id="dCost" style="color:var(--mut)">$</span></h4><div style="font-size:13px;color:var(--mut)">Performance</div><div id="dBars"></div><div class="mfoot" id="dDesc"></div></div>
+</div></div>
 <script>
-let MODEL = "cracked-ultra", lastCode = "", lastType = "pvp";
+let MODEL = "glm-5.3-flash", MODELS = [], lastCode = "";
 const $ = id => document.getElementById(id);
-document.getElementById("mcpUrl").textContent = location.origin + "/api/mcp";
 const qp = new URLSearchParams(location.search);
 if (qp.get("prompt")) $("prompt").value = qp.get("prompt");
-document.querySelectorAll(".model").forEach(m => m.onclick = () => {
-  document.querySelectorAll(".model").forEach(x => x.classList.remove("on"));
-  m.classList.add("on"); MODEL = m.dataset.m; $("mname").textContent = MODEL;
+document.querySelectorAll(".chip").forEach(c => c.onclick = () => $("prompt").value = c.dataset.p);
+$("openModal").onclick = () => $("ov").classList.add("open");
+$("ov").onclick = e => { if (e.target.id === "ov") $("ov").classList.remove("open"); };
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.remove("on"));
+  t.classList.add("on"); renderList(t.dataset.t);
 });
-async function loadTemplates() {
-  try {
-    const r = await fetch("/api/mcp", { method: "POST", headers: { "content-type": "application/json" },
-      body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "list_templates", arguments: {} } }) });
-    const j = await r.json();
-    const arr = JSON.parse(j.result.content[0].text);
-    $("tpls").innerHTML = arr.map(t => `<span class="tpl" data-p="${t.id}">${t.label}</span>`).join("");
-    document.querySelectorAll(".tpl").forEach(t => t.onclick = () => { $("gtype").value = t.dataset.p; $("prompt").value = t.dataset.p + " game with " + $("prompt").value.slice(0, 60); });
-    $("mcpStatus").textContent = "live ✓ 5 tools";
-  } catch (e) { $("mcpStatus").textContent = "unreachable"; }
+function bars(n) { let s = ""; for (let i = 0; i < 5; i++) s += `<span class="seg${i < n ? " f" : ""}"></span>`; return `<span class="segs">${s}</span>`; }
+function renderList(tab) {
+  const list = MODELS.filter(m => tab === "all" || m.tab === tab || (tab === "recommended" && m.tab === "recommended"));
+  $("mlist").innerHTML = list.map(m => `<div class="mitem${m.id === MODEL ? " on" : ""}" data-m="${m.id}"><div class="ic">${m.name[0]}</div><div><b style="font-size:14px">${m.name}</b>${m.badge ? `<span class="badge50">${m.badge}</span>` : ""}<small>$0 here · ${m.tab}</small></div><div class="price"><s>${m.listPrice}</s> <b>$0</b></div></div>`).join("");
+  document.querySelectorAll(".mitem").forEach(el => el.onclick = () => selectModel(el.dataset.m));
 }
-loadTemplates();
-$("gen").onclick = async () => {
-  $("gen").disabled = true; $("log").innerHTML = "generating with <b class='ok'>∞</b> via " + MODEL + "…";
+function selectModel(id) {
+  MODEL = id;
+  const m = MODELS.find(x => x.id === id);
+  $("mname").textContent = m.name;
+  $("dName").textContent = m.name;
+  $("dCost").textContent = m.listPrice + " → $0";
+  $("dDesc").textContent = id === "glm-5.3-flash" ? "Compact zero-fluff builds. Fastest round-trip for iterating gameplay." : id === "gemini-3.7-flash" ? "Commented step-by-step code. Best readability-to-quality ratio." : id === "composer-2.5" ? "Deluxe scenes: atmosphere lighting, title billboard, doubled rewards." : "All-round structure and economy tuning. Top marks everywhere.";
+  $("dBars").innerHTML = `<div class="prow"><div class="t"><span>Simple tasks</span></div>${bars(m.performance.simple)}</div><div class="prow"><div class="t"><span>Complex tasks</span></div>${bars(m.performance.complex)}</div><div class="prow"><div class="t"><span>Speed</span></div>${bars(m.performance.speed)}</div>`;
+  renderList(document.querySelector(".tab.on").dataset.t);
+}
+async function init() {
   try {
-    const r = await fetch("/api/generate", { method: "POST", headers: { "content-type": "application/json" },
-      body: JSON.stringify({ prompt: $("prompt").value, model: MODEL, jwt: $("jwt").value || null }) });
-    const j = await r.json();
-    lastCode = j.code || JSON.stringify(j).slice(0, 8000); lastType = j.gameType || "pvp";
+    const r = await fetch("/api/models"); const j = await r.json();
+    MODELS = j.models.filter(m => m.id !== "convex-real");
+    const cv = j.models.find(m => m.id === "convex-real");
+    if (cv) MODELS.push({ ...cv, name: "Convex Real (JWT)" });
+    selectModel("glm-5.3-flash");
+    $("mcpStatus").textContent = "live ✓ " + j.mcp.tools.length + " tools";
+  } catch (e) {
+    MODELS = [{ id: "glm-5.3-flash", name: "GLM 5.3 Flash", listPrice: "$", tab: "recommended", badge: null, performance: { simple: 4, complex: 3, speed: 5 } }];
+    selectModel("glm-5.3-flash"); $("mcpStatus").textContent = "offline — local fallback";
+  }
+}
+init();
+$("gen").onclick = async () => {
+  $("gen").disabled = true; $("log").innerHTML = "generating with <b class='ok'>" + MODEL + "</b> · $0.00 · ∞…";
+  try {
+    const r = await fetch("/api/generate", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ prompt: $("prompt").value, model: MODEL }) });
+    const j = await r.json(); lastCode = j.code;
     $("out").textContent = lastCode;
-    $("log").innerHTML = `<span class="ok">✓ done</span> · type ${lastType} · mode ${j.mode} · credits remaining: <b class="ok">∞</b>`;
-    try { localStorage.setItem("__last_luau", lastCode); } catch (e) {}
+    $("log").innerHTML = `<span class="ok">✓ done</span> · ${j.gameType} · ${j.mode} · charged <b class="ok">$0.00</b> · credits <b class="ok">∞</b>`;
   } catch (e) { $("log").textContent = "error: " + e.message; }
   $("gen").disabled = false;
 };
-$("editBtn").onclick = async () => {
-  if (!lastCode) return $("log").textContent = "generate first";
-  const r = await fetch("/api/mcp", { method: "POST", headers: { "content-type": "application/json" },
-    body: JSON.stringify({ jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "edit_code", arguments: { code: lastCode, instruction: $("editIns").value || "polish" } } }) });
+async function studio(a) {
+  const arg = $("mcpArg").value.trim();
+  let params = { name: a === "build" ? "studio_build" : "studio_" + a, arguments: {} };
+  if (a === "build") params.arguments = { prompt: $("prompt").value, model: MODEL };
+  if (a === "create") params.arguments = { className: "Part", name: arg.replace(/[^A-Za-z0-9_]/g, "") || "CrackedPart" };
+  if (a === "delete") { if (!arg) return $("log").textContent = "type a target name first"; params.arguments = { target: arg }; }
+  $("log").textContent = "mcp " + params.name + " …";
+  const r = await fetch("/api/mcp", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params }) });
   const j = await r.json(); lastCode = j.result.content[0].text; $("out").textContent = lastCode;
-  $("log").innerHTML = "<span class='ok'>✓ edit applied</span> · credits ∞";
-};
-$("copyBtn").onclick = () => { navigator.clipboard.writeText(lastCode || ""); $("log").textContent = "copied — paste into ServerScriptService Script"; };
+  $("log").innerHTML = "<span class='ok'>✓ executable Luau ready</span> — Copy/Export into Studio, or let the plugin run it. $0 · ∞";
+}
+document.querySelectorAll("[data-a]").forEach(b => b.onclick = () => studio(b.dataset.a));
+$("copyBtn").onclick = () => { navigator.clipboard.writeText(lastCode || ""); $("log").textContent = "copied — ServerScriptService > Script > paste > Play"; };
 $("expBtn").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([lastCode || "-- empty"], { type: "text/plain" })); a.download = "game.server.luau"; a.click(); };
 </script>
 </body>
